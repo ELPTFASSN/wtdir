@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+#productcontaine{
+	position:relative;
+	width:1300px;
+	height:auto;
+	margin:0px 5px 0px 0px;
+	float:left;
+}

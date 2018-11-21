@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="status" value="final" />
+	<infoitem key="notes" value="remove all the [packaging problem] option in the itf&#xD;&#xD;display only employees assigned to the area as re: delivered by, to, from&#xD;&#xD;" />
+	<infoitem key="showOnOpen" value="true" />
+</info>

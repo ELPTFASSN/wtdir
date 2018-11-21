@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="status" value="revision1" />
+	<infoitem key="notes" value="order by mu sa group priority. like sa inventory" />
+	<infoitem key="showOnOpen" value="true" />
+</info>

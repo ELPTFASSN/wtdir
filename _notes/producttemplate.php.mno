@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="status" value="final" />
+	<infoitem key="notes" value="Remove delete template. We'll put it (delete sheets etc..) somewhere in the index.php later on.&#xD;&#xD;We'll transfer 'Load Template' to index.php on 'Open' popup dialog so you will also need to remove this. (Create Template will be the remaining option)&#xD;&#xD;Remove multiple cancel buttons and retain one at the bottom right of the popup box.&#xD;&#xD;Arrange items in the template by type asc ,group asc,priority asc.&#xD;- nami na sang pg ajax mu btw. dasig cya.&#xD;&#xD;add a group column for each group to act as separator. (see sample of grouping layout in inventory page)&#xD;&#xD;add a js function that will reload the page if user updates (onBlur event? ) the priority number.&#xD;" />
+</info>

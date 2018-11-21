@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="status" value="revision1" />
+	<infoitem key="notes" value="Sort items by group asc, name asc then add a group column for each group to act as separator. (see sample of grouping layout in inventory page)&#xD;&#xD;move the [save] and [close] buttons at the bottom of the edit popup.&#xD;&#xD;have the option to delete an existing rawmat component of the product.&#xD;&#xD;increase width of edit popup menu to accommodate long item names." />
+</info>

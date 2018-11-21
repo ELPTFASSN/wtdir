@@ -1,0 +1,345 @@
+/* CSS Document */
+
+.inventorycolumnheader{
+	width:135px; 
+	display:block; 
+	text-align:center; 
+	float:left;
+}
+.inventorylistviewsubitem{
+	font-family:calibri;
+	float:left; 
+	border:none; 
+	background-color:transparent; 
+	width:131px;
+	height:auto;
+	padding:2px;
+	color:#333;
+	min-width:50px;
+	text-align:right;
+}
+/* ----- Rawmats -----*/
+.inventorycolumnheaderrawmats{
+	width:99px; 
+	display:block; 
+	text-align:center; 
+	float:left;
+}
+.inventorylistviewitemtextrawmats{
+	width:155px; 
+	height:auto; 
+	float:left;
+	vertical-align:middle;
+	padding-top:2px;
+	padding-left:5px;
+}
+.inventorylistviewsubitemrawmats{
+	font-family:calibri;
+	width:86px; 
+	float:left;
+	border:none; 
+	background-color:transparent; 
+	height:auto;
+	padding:2px;
+	color:#333;
+	min-width:50px;
+	text-align:right;
+	display:block;
+}
+
+/*------ Mix --------*/
+.inventorylistviewsubitemmix{
+	font-family:calibri;
+	width:115px; 
+	float:left;
+	border:none; 
+	background-color:transparent; 
+	height:auto;
+	padding:2px;
+	color:#333;
+	min-width:50px;
+	text-align:right;
+	display:block;
+}
+
+
+/* ----- New Dialog Box ----- */
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+#newinventorycontrolcontainer{
+	width: 300px;
+	position: relative;
+	margin: 10% auto;
+	padding: 20px 20px 20px 20px;
+	border-radius: 10px;
+	background: #921812;
+	background: -moz-linear-gradient(#921812,#660703);
+	background: -webkit-linear-gradient(#921812, #660703);
+	background: -o-linear-gradient(#921812, #660703);
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
+#newinventorycontroltitle{
+	font-size:16px; 
+	color:#FFF; 
+	padding-bottom:5px; 
+	font-weight:bold;
+}
+
+.newinventorycontrolitem{
+	vertical-align: middle; 
+	padding-top:5px; 
+	padding-bottom:5px;
+}
+
+.newinventorycontrolitem div{
+	float:left; 
+	width:90px; 
+	height:inherit; 
+	color:#fff; 
+	vertical-align:middle; 
+	padding:4px;
+}
+
+/*===============MANUAL INVERNTORY==================*/
+
+.misrow{
+	width:100%;
+	height:inherit;
+	overflow:auto;
+	overflow-x:hidden;
+	text-transform:capitalize;
+	font-weight:normal;
+}
+
+.miscolumn{
+	width:39%;
+	border-right:solid thin #999;
+	border-left:solid thin #CCC;
+	border-bottom:solid thin #999;
+	padding-left:0;
+	padding-right:0;
+	text-transform:capitalize;
+	font-weight:normal
+}
+
+.mislistviewitem{
+	width:100%;
+	height:auto;
+	min-height:24px;
+	float:left;
+	padding-left:5px;
+	font-size:12px;
+}
+
+.mislistviewitemtextrawmats{
+	width:260px; 
+	height:auto; 
+	float:left;
+	vertical-align:middle;
+	padding-top:2px;
+	padding-left:0px;
+}
+
+.misqtylabel{
+	text-transform:lowercase;
+	width:130px;
+	height:21px;
+	position:relative;
+	display:inline-table;
+	font-size:11px;
+}
+
+.misgroup{
+	width:100%;
+	min-height:24px;
+	background-image:-moz-linear-gradient(50% 0%,rgb(255,255,255) 0%,rgb(238,238,238) 100%); 
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(255,255,255)),color-stop(1, rgb(238,238,238)));
+	background-image:-webkit-linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	background-image:linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	border-bottom:thin solid #999;
+	border-top:thin solid #999;
+	font-weight:bold;
+	color:#333;
+	padding-top:10px;
+	height:21px;
+	text-align:left;
+	padding-left:5px;
+	float:left;
+	font-size:10px;
+	text-transform:uppercase;
+}
+
+.misqty{
+	float:right;
+	width:130px;
+	text-align:center;
+}
+
+.mislistviewsubitemrawmats{
+	font-family:calibri;
+	width:86px; 
+	float:left;
+	border:none; 
+	background-color:transparent; 
+	height:auto;
+	padding:2px;
+	color:#333;
+	min-width:50px;
+	text-align:right;
+	display:block;
+}
+
+#misproducts{
+	width:30.3%;
+}
+
+#misusage{
+	width:30.2%;
+}
+
+#misrawmats .mislistviewitemtextrawmats{
+	width:240px; 
+}
+
+#misproducts input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+#misusage input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.misdenomination{
+	max-height:16px;
+	outline: 0;
+	-webkit-appearance: none;
+	border:none;
+	max-width:80px;
+}
+
+.misdenolabel{
+	position:relative;
+	display:inline-table;
+	float:left;
+	width:80px;
+	text-align:right
+}
+
+.misdenoholder{
+	height:17px;
+	width:80px;
+	border-bottom:thin solid #000;
+	position:relative;
+	display:inline-table;
+	float:left;
+	margin-left:5px;
+}
+
+.misdenogroup{
+	position:relative;
+	display:inline-table;
+	float:left;
+	width:45%;
+}
+
+.misdenocol{
+	position:relative;
+	display:inline-table;
+	float:left;
+	width:15%;
+	padding-left:0%;
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+.codbod{
+	border:thin solid #000;
+	margin:0;
+}
+
+#crewonduty{
+	border-collapse: collapse;
+}
+
+.codcode{
+	max-height:16px;
+	outline: 0;
+	-webkit-appearance: none;
+	border:none;
+	max-width:100px;
+	text-align:center;
+	text-transform:capitalize;
+}
+
+.codhrs{
+	max-height:16px;
+	outline: 0;
+	-webkit-appearance: none;
+	border:none;
+	max-width:150px;
+}
+
+.codhrsdiff{
+	max-height:16px;
+	outline: 0;
+	-webkit-appearance: none;
+	border:none;
+	max-width:150px;
+	text-align:center;
+}
+
+.crewOD{
+	max-height:16px;
+	outline: 0;
+	border:none;
+	max-width:200px;
+	padding:0;
+}

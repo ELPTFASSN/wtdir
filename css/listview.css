@@ -1,0 +1,241 @@
+/* CSS Document */
+.listview{
+	width:auto;
+	/*min-height:200px;*/
+	background-color:#FFF;
+	border:thin solid #999;
+	overflow:hidden;
+	cursor:default;
+}
+.column{
+	width:100%;
+	min-height:24px;
+	background-image:-moz-linear-gradient(50% 0%,rgb(255,255,255) 0%,rgb(238,238,238) 100%); 
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(255,255,255)),color-stop(1, rgb(238,238,238)));
+	background-image:-webkit-linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	background-image:linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	border-bottom:thin solid #DDD;
+	padding-left:10px;
+}
+.columnheader{
+	width:100%;
+	height:20px;
+	float:left;
+	color:#333;
+	/*min-width:50px;*/
+	text-shadow:1px 1px 0px rgb(255,255,255);
+	font-weight:bold;
+	text-align:left;
+	vertical-align:middle;
+	padding:2px;
+	text-transform:uppercase;	
+}
+.miscolumn{
+	width:auto;
+	height:auto;
+	float:left;
+	color:#333;
+	/*min-width:50px;*/
+	text-shadow:1px 1px 0px rgb(255,255,255);
+	font-weight:bold;
+	text-align:left;
+	vertical-align:middle;
+	padding:2px;
+	text-transform:uppercase;
+	overflow:hidden;
+}
+
+.group{
+	width:1295px;
+	min-height:24px;
+	background-image:-moz-linear-gradient(50% 0%,rgb(255,255,255) 0%,rgb(238,238,238) 100%); 
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(255,255,255)),color-stop(1, rgb(238,238,238)));
+	background-image:-webkit-linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	background-image:linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	border-bottom:thin solid #999;
+	border-top:thin solid #999;
+	font-weight:bold;
+	color:#333;
+	padding-top:10px;
+	height:21px;
+	text-align:left;
+	padding-left:5px;
+	float:left;
+}
+
+.transfercontainer{
+	width:100%;
+	background-color:#FFF;
+	font-weight:bold;
+	height:auto;
+	text-align:left;
+	float:left;
+	}
+
+.row{
+	width:100%;
+	height:inherit;
+	overflow:auto;
+	overflow-x:hidden;
+}
+.listviewitem{
+	width:100%;
+	height:auto;
+	min-height:24px;
+	padding-left:10px;
+	float:left;
+}
+.listviewitem:hover{
+	background-color:#B7E3F0;
+}
+.listviewsubitem{
+	font-family:calibri;
+	width:auto;
+	height:auto;
+	padding:2px;
+	float:left;
+	color:#333;
+	min-width:50px;
+	text-align:left;	
+}
+.listviewsubitem input{
+	font-family:calibri;
+}
+.listviewsubitem select{
+	font-family:calibri;
+}
+
+/* ----- listbox ----- */
+
+.listbox{
+	width:auto;
+	/*min-height:200px;*/
+	background-color:#FFF;
+	border:thin solid #999;
+	overflow:auto;
+	overflow-x:hidden;
+	cursor:default;
+}
+.listboxitem{
+	font-family:calibri;
+	width:inherit;
+	min-height:20px;
+	text-align:left;	
+	height:auto;
+	color:#333;
+	padding:2px;
+	cursor:pointer;
+	-webkit-user-select:none;  
+	-moz-user-select:none;    
+	-ms-user-select:none;      
+	user-select:none;
+}
+.listboxitem:hover{
+	background-color:#B7E3F0;
+}
+.listboxitem img{
+	float:left;
+}
+
+
+
+.listview2{
+	width:100%; 
+	height:auto; 
+	background-color:#FFF; 
+	padding:5px; 
+	color:#333;
+}
+
+.listviewcolumn2{
+	border-bottom:2px solid #000; 
+	float:left; 
+	width:100%;
+}
+
+.listviewitem2{
+	width:inherit; 
+	height:auto; 
+	float:left;
+}
+
+/* ----- Report Listview -----*/
+.rptlistview{
+	font-family:calibri;
+	width:auto;
+	background-color:#FFF;
+	border:thin solid #999;
+	overflow:hidden;
+	cursor:default;
+}
+.rptcolumn{
+	width:auto;
+	min-height:18px;
+	background-image:-moz-linear-gradient(50% 0%,rgb(255,255,255) 0%,rgb(238,238,238) 100%); 
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(255,255,255)),color-stop(1, rgb(238,238,238)));
+	background-image:-webkit-linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	background-image:linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	border-bottom:thin solid #DDD;
+	padding-left:10px;
+}
+.rptcolumnheader{
+	width:auto;
+	height:14px;
+	float:left;
+	color:#333;
+	font-weight:bold;
+	text-align:left;
+	vertical-align:middle;
+	text-transform:uppercase;	
+	font-size:12px;
+	margin-top:2px;
+}
+.rptgroup{
+	width:100%;
+	min-height:16px;
+	background-image:-moz-linear-gradient(50% 0%,rgb(255,255,255) 0%,rgb(238,238,238) 100%); 
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(255,255,255)),color-stop(1, rgb(238,238,238)));
+	background-image:-webkit-linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	background-image:linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	border-bottom:thin solid #999;
+	border-top:thin solid #999;
+	font-weight:bold;
+	color:#333;
+	padding-top:4px;
+	text-align:left;
+	padding-left:5px;
+	float:left;
+	font-size:12px;
+}
+.rptrow{
+	width:inherit;
+	height:inherit;
+	overflow:auto;
+	overflow-x:hidden;
+}
+.rptlistviewitem{
+	width:100%;
+	height:auto;
+	min-height:20px;
+	padding-left:10px;
+	float:left;
+}
+.rptlistviewitem:hover{
+	background-color:#B7E3F0;
+}
+.rptlistviewsubitem{
+	font-family:calibri;
+	width:auto;
+	height:auto;
+	padding:2px;
+	float:left;
+	color:#000;
+	min-width:50px;
+	text-align:left;	
+}
+.rptlistviewsubitem input{
+	border:none;
+	font-family:calibri;
+	background-color:transparent;
+	height:14px;
+}

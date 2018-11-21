@@ -1,0 +1,87 @@
+/* CSS Document */
+.indextextbox
+{
+	width:218px;
+	height:13px;
+	padding:5px;
+	text-align:center;
+	color:#862421;
+	font-size:14px;
+	border:thin solid #333;
+	/*background-color:#EEE;*/
+}
+.indexbutton
+{
+	background-color:#921812;
+	border:none;
+	color:#FFF;
+	width:110px;
+	height:25px;
+	cursor:pointer;
+}
+#indexlogin
+{
+	margin:50px auto;
+	background-color:#999;
+	
+	width:400px;
+	height:450px;
+	border-radius:20px;
+	
+	-moz-box-shadow:0px 0px 12px 5px rgba(64,64,64,0.65);
+	-webkit-box-shadow:0px 0px 12px 5px rgba(64,64,64,0.65);
+	box-shadow:0px 0px 12px 5px rgba(64,64,64,0.65);
+	border-radius:2.5px;
+}
+#indexlogo
+{
+	width:400px;
+	height:100px;
+	background-image:url(../img/wti.png);
+	background-size:auto 100px;
+	background-position:center;
+	background-repeat:no-repeat;
+	/*background-color:#333;*/
+	border-top-left-radius:2.5px;
+	border-top-right-radius:2.5px;
+}
+#indexfrlogin
+{
+	background-color:#EEE;
+	height:300px;
+	text-align:center;
+	font-size:12px;
+	left:25px;
+	top:110px;
+	margin:0px auto;
+	padding:10px;
+}
+
+#indexfooter{
+	padding:10px;
+	bottom:0px;
+	text-align:center;
+	font-size:12px;
+	color:#da251d;
+	background-color:#FFF;
+	border-bottom-left-radius:2.5px;
+	border-bottom-right-radius:2.5px;
+}
+
+input:focus{
+    outline: 0;
+	border: 0px solid;
+}
+
+input{
+	outline: 0;
+	border: 0px solid;
+	-moz-box-shadow:    inset 0 0 2.5px #000000;
+    -webkit-box-shadow: inset 0 0 2.5px #000000;
+    box-shadow:         inset 0 0 2.5px #000000;
+}
+
+select:focus{
+    outline: 0;
+}
+

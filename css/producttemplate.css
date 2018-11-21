@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Container - Duplicate Template*/
+.duplicatepopup {
+	width:300px; 
+	background-color:#666; 
+	height:0px;
+	transition: height 200ms ease-in;
+	-webkit-transition: height 200ms ease-in;
+	-moz-transition: height 200ms ease-in;	
+}
+
+.duplicatecontainer {
+	width:300px;
+	position: relative;
+}
+
+.popupcontainer{
+	width: 300px;
+	position: relative;
+	margin: 10% auto;
+	padding: 20px 20px 20px 20px;
+	border-radius: 10px;
+	background: #921812;
+	background-color:#EEE;
+	border:thin solid #333;
+	-moz-box-shadow:0px 0px 12px 5px rgba(0,0,0,0.3);
+	-webkit-box-shadow:0px 0px 12px 5px rgba(0,0,0,0.3);
+	box-shadow:0px 0px 12px 5px rgba(0,0,0,0.3);
+}
+.popupcontainer div{
+	color:#333;
+}
+
+/* Sidebar - Product Items */
+#productitemcontainer {
+	position: fixed;
+	top: 275px;
+	left: 0;
+	width: 35px;
+	padding: 12px 0;
+	text-align: center;
+	background: #921812;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+	z-index:999;
+}
+#productitemcontainer_inner {
+	position: fixed;
+	top: 50px;
+	left: -350px;
+	background: #921812;
+	width: 300px;
+	padding: 25px 25px 5px 25px;
+	height: auto;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	text-align: left;
+	-webkit-border-radius: 0 0 5px 0;
+	-moz-border-radius: 0 0 5px 0;
+	border-radius: 0 0 5px 0;
+}
+#productitemcontainer:hover {
+	left: 350px;
+}
+#productitemcontainer:hover #productitemcontainer_inner {
+	left: 0;
+}
+.productitemheader{
+	width:300px;
+	text-align:center;
+	float:left;
+	position:relative;
+	color:#333;
+	border:none;
+}
+.inputbox{
+	border:none;
+	width:250px;
+	background-color:transparent;
+	margin-left:5px;
+	color:#333;
+}
+.formproductitem:hover{
+	background-color:#B7E3F0;
+}
+
+
+/* Product Template Container */
+#templatecontainer{
+	position:relative;
+	width:1300px;
+	height:1300px;
+	margin:0px 5px 0px 0px;
+	float:left;
+}
+.producttemplateheader{
+	width:320px;
+	text-align:center;
+	float:left;
+	position:relative;
+	color:#333;
+	border:none;
+}
+.producttemplatesubitem{
+	width:320px;
+	color:#333;
+	position:relative;
+	float:left;
+	border:none;
+	background-color:transparent;
+	margin:0px;
+}
+
+
+/* Scrollbar 
+::-webkit-scrollbar {
+    width: 12px;
+}
+*/
+/* Track 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ */
+/* Handle 
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb: .productitemsubcontainer {
+	background: rgba(255,0,0,0.4); 
+}
+*/

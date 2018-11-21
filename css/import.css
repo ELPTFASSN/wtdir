@@ -1,0 +1,86 @@
+/* CSS Document */
+#importcontainer{
+	width:900px;
+	height:450px;
+	margin:30px auto;
+	background-color:#EEE;
+}
+#importtitlebar{
+	height:40px;
+	background-color:#333;
+}
+#showimporttitleicon{
+	margin-top:3px;
+	margin-left:8px;
+	height:32px;
+	width:32px;
+	background-image:url(../img/icon/import32.png);
+	background-repeat:no-repeat;
+	float:left;
+}
+#importtitle{
+	padding-top:10px;
+	margin-left:8px;
+	color:#EEE;
+	font-size:16px; 
+	font-weight:bold;
+	text-transform:uppercase;
+	float:left;	
+}
+.importsection{
+	width:50%;
+	float:left;
+}
+.importrow{
+	padding-top:5px;
+	padding-bottom:5px;
+	height:20px;
+}
+.importcolumn{
+	width:25%;
+	padding-top:5px;
+	padding-bottom:5px;
+	height:20px;
+	float:left;
+}
+#calendarbody{
+	width:400px;
+	margin:20px auto;
+	background-color:#DDD;
+}
+.calendarheaderrow{
+	width:98%;
+	float:left;
+	color:#333;
+	font-weight:bold;
+	background: -webkit-linear-gradient(#FFF, #EEE);
+	background: -o-linear-gradient(#FFF, #EEE);
+	background: -moz-linear-gradient(#FFF, #EEE);
+	background: linear-gradient(#FFF, #EEE);
+	text-shadow:1px 1px 1px #EEE;
+	border-bottom:solid thin #DDD;
+}
+.calendarheadercolumn{
+	width:14%;
+	float:left;
+	font-size:18px;
+	text-align:center;
+}
+.calendaritemcolumn{
+	width:14%;
+	padding-top:10px;
+	padding-bottom:10px;
+	background-color:#EEE;
+	float:left;
+	font-size:18px;
+	text-align:center;
+	cursor:pointer;
+	border-top:solid thin #FFF;
+	border-bottom:solid thin #DDD;
+}
+.calendaritemcolumn:hover{
+	background-color:#FC0;
+}
+
+
+

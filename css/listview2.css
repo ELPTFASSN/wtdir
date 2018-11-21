@@ -1,0 +1,52 @@
+/* CSS Document */
+.listview{
+	width:auto;
+	min-height:200px;
+	background-color:#FFF;
+	/*border:thin solid #999;*/
+	overflow:hidden;	
+}
+.column{
+	width:auto;
+	min-height:24px;
+	background-image:-moz-linear-gradient(50% 0%,rgb(255,255,255) 0%,rgb(238,238,238) 100%); 
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(255,255,255)),color-stop(1, rgb(238,238,238)));
+	background-image:-webkit-linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	background-image:linear-gradient(rgb(255,255,255) 0%,rgb(238,238,238) 100%);
+	border-bottom:thin solid #DDD;
+}
+.columnheader{
+	width:auto;
+	height:auto;
+	padding:2px;
+	float:left;
+	color:#333;
+	min-width:100px;
+	text-shadow:1px 1px 0px rgb(255,255,255);
+	/*border-right:thin solid #DDD;*/
+	font-weight:bold;
+	text-align:center;
+}
+.row{
+	width:inherit;
+	height:inherit;
+	overflow:auto;
+	overflow-x:hidden;
+}
+.listviewitem{
+	width:inherit;
+	height:24px;
+}
+.listviewitem:hover{
+	background-color:#B7E3F0;
+}
+.listviewsubitem{
+	width:auto;
+	height:auto;
+	padding:2px;
+	float:left;
+	color:#333;
+	min-width:100px;
+	text-align:center;	
+}
+
