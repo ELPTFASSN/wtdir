@@ -45,20 +45,18 @@
 				}
 				// start macarse
 				for($k= 0; $k<20; $k++){
-					$rci = "repcrewid-{$i}-{$k}";
+					$rsci = "repsalescrewid-{$i}-{$k}";
 					$rcnh = "repcrewhr-{$i}-{$k}";
 					$rchours=0.00;
-					if(isset($_POST[$rci])){
-							$rchours=$_POST[$rcnh];
+					if(isset($_POST[$rsci])){
+							// echo 'result: ' . $_POST[$rsci] . ' == ' . $_POST[$rcnh] . '<br />';
 							$stmt=$mysqli->stmt_init();
-							if($stmt->prepare("UPDATE salescrew (unEmployee,SCHours,IDSeq,IDDes) values (".$hasRec.",".$maxIncDat.",'".$_POST[$ron]."',".$rohours.",".$k.",'OS') ON DUPLICATE KEY UPDATE IDEmployee='".$_POST[$ron]."', IDHours=".$rohours)){
+							if($stmt->prepare('UPDATE salescrew SET SCHours = ? WHERE idSalesCrew = ?')){
+								$stmt->bind_param('ii', $_POST[$rcnh], $_POST[$rsci]);
 								$stmt->execute();
 							}
 							$stmt->close();
-							// echo 'Result: ' . $_POST[$rci] . ' > ' . $_POST[$rcnh] . ' <br />';
 					}
-
-
 				}
 				// end macarse
 
@@ -131,7 +129,6 @@
 			}
 		}
 		//die();
-		exit;
 		header('location:../'.$_POST['sessURL']);
 	}
 

@@ -205,7 +205,7 @@ function FilterReport(dFrom,dTo){
 								$totalHours=0;
 								$totalOSHours=0;
 								$stmtemp = $mysqli->stmt_init();
-								if($stmtemp->prepare("SELECT idEmployee, SCCode1, SCCode2, CONCAT( ELastName,  ', ', EFirstName ) AS Employee, SUM( SCHours ) AS Hours
+								if($stmtemp->prepare("SELECT idSalesCrew, SCCode1, SCCode2, CONCAT( ELastName,  ', ', EFirstName ) AS Employee, SUM( SCHours ) AS Hours
 								FROM  `salesdata`
 								INNER JOIN branch ON salesdata.unBranch = branch.unBranch
 								INNER JOIN salescrew ON salesdata.unInventoryControl = salescrew.unInventoryControl
@@ -215,10 +215,10 @@ function FilterReport(dFrom,dTo){
 								GROUP BY Employee ORDER BY ELastName")){
 									$stmtemp->bind_param('ii',$_SESSION['area'],$unBranch);
 									$stmtemp->execute();
-									$stmtemp->bind_result($idEmployee, $SCCode1,$SCCode2,$Employee,$Hours);
+									$stmtemp->bind_result($idSalesCrew, $SCCode1,$SCCode2,$Employee,$Hours);
 									while ($stmtemp->fetch()) {
 										if($SCCode1!='SP' && $SCCode1!='T' && $SCCode1!='F'){
-												echo '<tr class="rptrow"><th class="rptcrew rptccrew" style="text-align:left; padding-left:90px;"><input type="hidden" style="display:none" name="repcrewid-'.$i.'-'.$j.'" id="repcrewid-'.$i.'-'.$j.'" value="'.$idEmployee.'"><input type="hidden" style="display:none" name="repcrewname-'.$i.'-'.$j.'" id="repcrewname-'.$i.'-'.$j.'" value="'.$Employee.'"><b>'.$Employee.'</b></th>
+												echo '<tr class="rptrow"><th class="rptcrew rptccrew" style="text-align:left; padding-left:90px;"><input type="hidden" style="display:none" name="repsalescrewid-'.$i.'-'.$j.'" id="repsalescrewid-'.$i.'-'.$j.'" value="'.$idSalesCrew.'"><input type="hidden" style="display:none" name="repcrewname-'.$i.'-'.$j.'" id="repcrewname-'.$i.'-'.$j.'" value="'.$Employee.'"><b>'.$Employee.'</b></th>
 												<td><input placeholder="0.00" id="repcrewhr-'.$i.'-'.$j.'" name="repcrewhr-'.$i.'-'.$j.'" name="repcrewhr-'.$i.'-'.$j.'" style="text-align:center;" value="'.$Hours.'"></td>
 												<td><input placeholder="%" id="repcrewperc-'.$i.'-'.$j.'" readonly style="text-align:center; background:#EEE" value=""></td>
 												<td><input class="rptamt" placeholder="0.00" id="repcrewinc-'.$i.'-'.$j.'" readonly style="text-align:center; background:#EEE" value=""></td>
@@ -226,7 +226,7 @@ function FilterReport(dFrom,dTo){
 												$totalHours+=$Hours;
 												$j++;
 										}else if(($SCCode1=='SP')){
-											$OSString = $OSString.'<tr class="rptrow"><th class="rptcrew" style="text-align:left; padding-left:90px;"><input type="hidden" style="display:none" name="reposid-'.$i.'-'.$j.'" id="reposid-'.$i.'-'.$j.'" value="'.$idEmployee.'"><input type="hidden" style="display:none" id="reposname-'.$i.'-'.$os.'" name="reposname-'.$i.'-'.$os.'" class="reposname  reposnewname-'.$i.'" value="'.$Employee.'"><b>'.$Employee.'</b></th>
+											$OSString = $OSString.'<tr class="rptrow"><th class="rptcrew" style="text-align:left; padding-left:90px;"><input type="hidden" style="display:none" name="repsalescrewid-'.$i.'-'.$j.'" id="repsalescrewid-'.$i.'-'.$j.'" value="'.$idSalesCrew.'"><input type="hidden" style="display:none" id="reposname-'.$i.'-'.$os.'" name="reposname-'.$i.'-'.$os.'" class="reposname  reposnewname-'.$i.'" value="'.$Employee.'"><b>'.$Employee.'</b></th>
 											<td><input placeholder="0.00" id="reposhr-'.$i.'-'.$os.'" name="reposhr-'.$i.'-'.$os.'" class="reposhr" readonly style="text-align:center; background:#EEE" value="'.$Hours.'"></td>
 											<td><input placeholder="%" id="reposperc-'.$i.'-'.$os.'" readonly style="text-align:center; background:#EEE" value=""></td>
 											<td><input class="rptamt" placeholder="0.00" id="reposinc-'.$i.'-'.$os.'" readonly style="text-align:center; background:#EEE" value=""></td>
