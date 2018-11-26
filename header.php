@@ -1,26 +1,26 @@
-  <?php
+<?php
 	include 'include/var.inc.php';
 	include 'include/class.inc.php';
-
+	
 	session_start();
 	if ($_SESSION['Session'] == '') {header("location:end.php");}
-
+	
 	$oAccountUser=$_SESSION['oAccountUser'];
 	$sessionid = ExecuteReader('Select AUSession as `result` From accountuser Where unAccountUser='.$oAccountUser->unAccountUser);
 	if ($_SESSION['Session'] != $sessionid) {header("location:end.php");}
-
+	
 	if(isset($_GET['action'])){
 		$_SESSION['area']=$_GET['aid'];
 		if ($_SERVER['PHP_SELF']== $_SESSION['ParentPath'].'manualinventory.php' || $_SESSION['ParentPath'].'inventory.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'delivery.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'transfer.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'discount.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'productmix.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'damage.php'){
 			header('location:index.php');
 		}else{
-			header('location:'.$_SERVER['PHP_SELF']);
+			header('location:'.$_SERVER['PHP_SELF']);			
 		}
 	}
 	if(!isset($_SESSION['area'])){
 		echo "<script>location.href='#popuparea'</script>";
 	}
-
+	
 	//echo $_SESSION['BusinessUnit'];
 ?>
 
@@ -133,7 +133,7 @@ function mainmenu(){
 });
 
 
-$(document).ready(function(){
+$(document).ready(function(){					
 	mainmenu();
     $('.listviewitem').mouseover(function() {
         $(this).css('background-color','#B7E3F0');
@@ -188,7 +188,7 @@ function msgbox(content,ok,cancel){
 	}else{
 		$('#msgboxform').append('<a href="#" title="Close" class="msgboxclose">Close</a>');
 	}
-
+	
 	location.href='#showmessagebox';
 }
 
@@ -226,12 +226,12 @@ function openinventory(tab,bid,did){
 	if(tab=='' || bid =='' || did==''){
 		msgbox('Please select a sheet','');
 		return;
-	}
+	}	
 	markdocument(<?php echo $oAccountUser->unAccountUser; ?>,1,did);
 	if (tab=='sheet'){
 		location.href='<?php echo $_SERVER['PHP_SELF']; ?>?&bid='+ bid +'&did='+did+'&type='+type;
 	}else{
-		redirect(tabtoopen+'.php?&bid='+ bid +'&did='+did+'&type='+type);
+		redirect(tabtoopen+'.php?&bid='+ bid +'&did='+did+'&type='+type);	
 	}
 }
 
@@ -245,11 +245,11 @@ function redirect(url){
 }
 
 function disableEnterKey(e){
-	 var key;
+	 var key;      
 	 if(window.event)
 		  key = window.event.keyCode; //IE
 	 else
-		  key = e.which; //firefox
+		  key = e.which; //firefox      																							  
 	 return (key != 13);
 }
 
@@ -259,7 +259,7 @@ function loaduom(idPI,idComboBox){
 		$('#'+idComboBox).html('');
 		return;
 	}
-
+	
 	$.post('ajax/ajax.php',
 	{
 		qid:'loaduom',
@@ -284,7 +284,7 @@ function getOffset(el){
 
 function columnheader(idColumn,idListView)
 	{
-		var checkItem = $('#colnewheader').length;
+		var checkItem = $('#colnewheader').length;			
 		if (checkItem < 1)
 		{
 			var fixedDiv = document.createElement('div');
@@ -302,18 +302,18 @@ function columnheader(idColumn,idListView)
 			fixedDiv.style['boxShadow'] = '0px 0px 5px #300';
 			fixedDiv.style.borderBottom = 'thin solid #300';
 			fixedDiv.style.top = '-50px';
-
+			
 			document.getElementById(idListView).appendChild(fixedDiv);
-
+				
 			var foo1 = jQuery('#'+idColumn);
 			var foo2 = jQuery('#colnewheader');
 
-			foo1.clone().appendTo(foo2);
+			foo1.clone().appendTo(foo2);		
 		}
 
 		if(document.body.scrollTop > 140)
 		{
-			$('#colnewheader').animate({top:'0px'}, 'slow','linear');
+			$('#colnewheader').animate({top:'0px'}, 'slow','linear');	
 		}
 		else // if ($(document).scrollTop() <= 139)
 		{
@@ -321,7 +321,7 @@ function columnheader(idColumn,idListView)
 		$('#colnewheader').remove();
 		}
 	}
-
+		
 function sal(value,page,desc){
 	$.post('ajax/ajax.php',
 	{
@@ -357,7 +357,7 @@ $.post('ajax/index.ajax.php',
     <div class="popupcontainer">
         <div class="popuptitle" align="center">SELECT AREA</div>
         <div class="popupitem">
-
+        
             <div class="listview">
                 <div class="column">
                     <div class="columnheader">Area</div>
@@ -366,10 +366,10 @@ $.post('ajax/index.ajax.php',
                 <?php
                     $mysqli=new MySQLi($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
                     $stmt=$mysqli->stmt_init();
-                    if($stmt->prepare("Select accountuserarea.unArea,AName
-                                        from accountuserarea
-                                        inner join area on accountuserarea.unArea=area.unArea
-                                        where accountuserarea.`Status` = 1 and area.`Status`=1 and unAccountUser=?
+                    if($stmt->prepare("Select accountuserarea.unArea,AName 
+                                        from accountuserarea 
+                                        inner join area on accountuserarea.unArea=area.unArea 
+                                        where accountuserarea.`Status` = 1 and area.`Status`=1 and unAccountUser=? 
                                         Order by AName")){
                         $stmt->bind_param('i',$oAccountUser->unAccountUser);
                         $stmt->execute();
@@ -383,7 +383,7 @@ $.post('ajax/index.ajax.php',
                         }
                         $stmt->close();
                     }
-                ?>
+                ?>                   
                 </div>
             </div>
 			<div class="popupitem" style = "padding-top: 20px">
@@ -393,8 +393,11 @@ $.post('ajax/index.ajax.php',
                 </div>
                 <div class="row" style = "margin-top: 5px">
 					<div class="listviewitem" style = "margin-bottom: 5px; width: auto;">
-						<div class="listviewsubitem"><b>LAMP</b>(currently used Linux web server solution stack package) which consists of Apache, MYSQL, and PHP are all being considered for an upgrade. With this, we believe it could
+						<div class="listviewsubitem"><b>Slow response time concern: </b><br /><i>LAMP</i> (currently used Linux web server solution stack package) which consists of Apache, MYSQL, and PHP are all being considered for an upgrade. With this, we believe it could
 							fix the woes of website's slow response time and crashes. Please wait patiently while we're trying our best to sort out and prepare the server for the upgrade. </div>
+					</div>
+					<div class="listviewitem" style = "margin-bottom: 10px; width: auto;">
+						<div class="listviewsubitem"><b>Flavors of the month concern: </b> <br />This is impossible considering we're not saving per-crew FOM sold(We have no concrete data to work on).</div>
 					</div>
 					<div class="listviewitem" style = "margin-bottom: 10px; width: auto;">
 						<div class="listviewsubitem">For the meantime, if you have any concerns and suggestions, you can send us an e-mail via [ Send Feedback ] found on upper left corner of the screen.</div>
@@ -678,7 +681,7 @@ $.post('ajax/index.ajax.php',
                			<div class="listviewsubitem">- - - </div>
                			<div class="listviewsubitem">Transfer of Software Development Duties to Christian Ryan R. Macarse(macarse@coffeebreak.ph) - - -</div>
                		</div>
--->
+-->					
 					<div class="listviewitem">
                			<div class="listviewsubitem">20181105 - </div>
                			<div class="listviewsubitem">Added [ Send Feedback ] for user-to-developer assitance </div>
@@ -714,17 +717,17 @@ $.post('ajax/index.ajax.php',
                 <!--<?php
                     $mysqli=new MySQLi($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
                     $stmt=$mysqli->stmt_init();
-                    if($stmt->prepare("Select accountuserarea.unArea,AName
-                                        from accountuserarea
-                                        inner join area on accountuserarea.unArea=area.unArea
-                                        where accountuserarea.`Status` = 1 and area.`Status`=1 and unAccountUser=?
+                    if($stmt->prepare("Select accountuserarea.unArea,AName 
+                                        from accountuserarea 
+                                        inner join area on accountuserarea.unArea=area.unArea 
+                                        where accountuserarea.`Status` = 1 and area.`Status`=1 and unAccountUser=? 
                                         Order by AName")){
                         $stmt->bind_param('i',$oAccountUser->unAccountUser);
                         $stmt->execute();
                         $stmt->bind_result($unArea,$AName);
                         while($stmt->fetch()){
                         ?>
-
+                           
                             <div class="listviewitem" onClick="location.href='<?php echo $_SERVER['PHP_SELF']; ?>?&action=setarea&aid=<?php echo $unArea; ?>'" style="cursor:pointer;">
                                 <div class="listviewsubitem"><?php echo $AName; ?></div>
                             </div>
@@ -732,7 +735,7 @@ $.post('ajax/index.ajax.php',
                         }
                         $stmt->close();
                     }
-                ?> -->
+                ?> -->                  
                 </div>
             </div>
 
@@ -742,6 +745,17 @@ $.post('ajax/index.ajax.php',
         </div>
     </div>
 </div>
+
+<div id="showmessagebox" class="msgbox">
+    <div id="msgboxform" style="text-align:center;color:#FFF;font-weight:bold;font-size:14px;letter-spacing:2px; background-color:<?php echo $_SESSION['color']; ?>">
+    	MESSAGE
+        </br>
+        </br>
+	    <div id="msgboxcontent" class="msgboxcontent" style="margin-top:50px; background-color:<?php echo $_SESSION['color']; ?>"></div>        
+    </div>
+</div>
+
+<!-- start macarse -->
 
 <div class="popup" id="popupsendfeedback">
 		<div class="popupcontainer" style="width:600px">
@@ -785,6 +799,8 @@ $.post('ajax/index.ajax.php',
     </div>
 </div>
 
+<!-- end macarse -->
+
 
 <div id="titlebar" style=" background-color:<?php echo $_SESSION['color']; ?>"> <a href="index.php"><img src="img/<?php echo $_SESSION['BULogo']; ?>.png" style="margin-top:-10px;margin-bottom:-10px; background-color:<?php echo $_SESSION['color']; ?>" height="35"></a> <?php echo $_SESSION['BusinessUnit']; ?> Sales and Inventory System
 	<?php
@@ -806,29 +822,29 @@ $.post('ajax/index.ajax.php',
 			case $_SESSION['ParentPath'].'sold.php':
 				echo '- [Inventory Sheet]';
 				break;
-
+			
 			case $_SESSION['ParentPath'].'employee.php':
 			case $_SESSION['ParentPath'].'employeegroup.php':
 				echo '- [Employee]';
 				break;
-
+	
 			case $_SESSION['ParentPath'].'branch.php':
 				echo '- [Branch]';
 				break;
-
+				
 			case $_SESSION['ParentPath'].'device.php':
 				echo '- [Device]';
 				break;
-
+				
 			case $_SESSION['ParentPath'].'paymenttype.php':
 				echo '- [Payment Type]';
 				break;
-
+	
 			case $_SESSION['ParentPath'].'productitem.php':
 			case $_SESSION['ParentPath'].'productgroup.php':
 				echo '- [Item]';
 				break;
-
+				
 			case $_SESSION['ParentPath'].'ptemplate.php':
 				echo '- [Template [ '.ExecuteReader("Select TICName as `result` From templateitemcontrol Where unTemplateItemControl=".$_GET['id']).' ]]';
 				break;
@@ -865,7 +881,7 @@ $.post('ajax/index.ajax.php',
 			case $_SESSION['ParentPath'].'updatetransfer.php':
 				echo '- [Transfer]';
 				break;
-
+				
 			case $_SESSION['ParentPath'].'createinvoice.php':
 				echo '- [POS]';
 				break;
@@ -880,7 +896,7 @@ $.post('ajax/index.ajax.php',
 </div>
 
 <div id="maintab">
-
+      
         <li id="menufile">File
         	<ul>
             <a href="#"><li style="text-align:left;">New
@@ -896,13 +912,13 @@ $.post('ajax/index.ajax.php',
         	<a href="#"><li style="text-align:left;">Open
             	<ul>
                 <a href="#createinventorysheet" title="Open an Inventory Form" onClick="redirect('createdelivery.php')"><li><img src="img/icon/inventory.png" width="16" height="16" style="padding-right:10px;">Inventory Sheet
-                <?php
+                <?php 
                         $mysqli = new MySQLi($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
                         $stmt=$mysqli->stmt_init();
                         if($stmt->prepare("Select inventorycontrol.unBranch,BName
-                                            From inventorycontrol Inner Join branch on inventorycontrol.unBranch=branch.unBranch
-                                            Where inventorycontrol.`Status`=1 and branch.`status`=1 and unArea=?
-                                            Group By BName
+                                            From inventorycontrol Inner Join branch on inventorycontrol.unBranch=branch.unBranch 
+                                            Where inventorycontrol.`Status`=1 and branch.`status`=1 and unArea=? 
+                                            Group By BName 
                                             Order by BName")){
                         $stmt->bind_param('i',$_SESSION['area']);
                         $stmt->execute();
@@ -914,10 +930,10 @@ $.post('ajax/index.ajax.php',
                     <?php
                         }
 						$stmt2=$mysqli->stmt_init();
-						if($stmt2->prepare("Select concat(MonthName(ICDate),' ',Year(ICDate)) as `ICPeriod`, Year(ICDate) as `ICYear`, MonthName(ICDate) as `ICMonth`
-							From inventorycontrol
-							Where Status=1 and unBranch=?
-							Group By ICPeriod
+						if($stmt2->prepare("Select concat(MonthName(ICDate),' ',Year(ICDate)) as `ICPeriod`, Year(ICDate) as `ICYear`, MonthName(ICDate) as `ICMonth` 
+							From inventorycontrol 
+							Where Status=1 and unBranch=? 
+							Group By ICPeriod 
 							Order By Year(ICDate) Desc, Month(ICDate)")){
 						$stmt2->bind_param('i',$unBranch);
 						$stmt2->execute();
@@ -929,9 +945,9 @@ $.post('ajax/index.ajax.php',
                         <?php
 						}
 						$stmt3=$mysqli->stmt_init();
-						if($stmt3->prepare("Select unInventoryControl,ICNumber,ICInventoryNumber,ICRemarks
-											From inventorycontrol
-											Where Status=1 and unBranch=? and Year(ICDate)=? and MonthName(ICDate)=?
+						if($stmt3->prepare("Select unInventoryControl,ICNumber,ICInventoryNumber,ICRemarks 
+											From inventorycontrol 
+											Where Status=1 and unBranch=? and Year(ICDate)=? and MonthName(ICDate)=? 
 											Order By ICInventoryNumber Desc")){
 						$stmt3->bind_param('iss',$unBranch,$CYear,$CMonth);
 						$stmt3->execute();
@@ -949,13 +965,13 @@ $.post('ajax/index.ajax.php',
                     ?>
                 </li></a>
                 <a href="#"><li ><img src="img/icon/delivery.png" width="16" height="16" style="padding-right:10px;">Delivery
-                <?php
+                <?php 
                         $mysqli = new MySQLi($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
                         $stmt=$mysqli->stmt_init();
-                        if($stmt->prepare("Select deliverycontrol.unBranchTo,BName
-								From deliverycontrol Inner Join branch on deliverycontrol.unBranchTo=branch.unBranch
-								Where deliverycontrol.`Status`=1 and branch.`status`=1 and deliverycontrol.unArea=?
-								Group By BName
+                        if($stmt->prepare("Select deliverycontrol.unBranchTo,BName 
+								From deliverycontrol Inner Join branch on deliverycontrol.unBranchTo=branch.unBranch 
+								Where deliverycontrol.`Status`=1 and branch.`status`=1 and deliverycontrol.unArea=? 
+								Group By BName 
 								Order by BName")){
                         $stmt->bind_param('i',$_SESSION['area']);
                         $stmt->execute();
@@ -965,12 +981,12 @@ $.post('ajax/index.ajax.php',
                     ?>
                              <li><?php echo $BName;?>
                     <?php
-                        }
+                        }                        
 						$stmt2=$mysqli->stmt_init();
-						if($stmt2->prepare("Select concat(MonthName(DCDate),' ',Year(DCDate)) as `DCPeriod`, Year(DCDate) as `DCYear`, MonthName(DCDate) as `DCMonth`
-							From deliverycontrol
-							Where Status=1 and unBranchTo=?
-							Group By DCPeriod
+						if($stmt2->prepare("Select concat(MonthName(DCDate),' ',Year(DCDate)) as `DCPeriod`, Year(DCDate) as `DCYear`, MonthName(DCDate) as `DCMonth` 
+							From deliverycontrol 
+							Where Status=1 and unBranchTo=? 
+							Group By DCPeriod 
 							Order By Year(DCDate) Desc, Month(DCDate)")){
 						$stmt2->bind_param('i',$unBranch);
 						$stmt2->execute();
@@ -978,12 +994,12 @@ $.post('ajax/index.ajax.php',
 						echo '<ul style="margin-left:50px;">';
 						while($stmt2->fetch()){
 							echo '<li>'.$CPeriod;
-						}
+						}						
 						$stmt3=$mysqli->stmt_init();
-						if($stmt3->prepare("Select unDeliveryControl,DCDocNum,ICNumber
-								From deliverycontrol
-								Left Join inventorycontrol on deliverycontrol.unInventoryControl=inventorycontrol.unInventoryControl
-								Where deliverycontrol.`Status`=1 and unBranchTo=? and Year(DCDate)=? and MonthName(DCDate)=?
+						if($stmt3->prepare("Select unDeliveryControl,DCDocNum,ICNumber 
+								From deliverycontrol 
+								Left Join inventorycontrol on deliverycontrol.unInventoryControl=inventorycontrol.unInventoryControl 
+								Where deliverycontrol.`Status`=1 and unBranchTo=? and Year(DCDate)=? and MonthName(DCDate)=? 
 								Order By DCDate Desc")){
 						$stmt3->bind_param('iss',$unBranch,$CYear,$CMonth);
 						$stmt3->execute();
@@ -1001,7 +1017,7 @@ $.post('ajax/index.ajax.php',
                     ?>
                 </li></a>
                 <a href="#"><li ><img src="img/icon/itf.png" width="16" height="16" style="padding-right:10px;">Transfer
-				<?php
+				<?php 
                         $mysqli = new MySQLi($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
 						$stmt2=$mysqli->stmt_init();
 						if($stmt2->prepare("Select CPeriod,CYear,CMonth
@@ -1012,20 +1028,20 @@ $.post('ajax/index.ajax.php',
 					 Union
 					 Select concat(MonthName(TCDate), ' ', Year(TCDate)) as CPeriod, Year(TCDate) as CYear, MonthName(TCDate) as CMonth, Month(TCDate) as CMon, unBranchTo as bTo
 						from transfercontrol
-					) tablesource
+					) tablesource 
 					Group By CYear Desc,CMon")){
 						$stmt2->execute();
 						$stmt2->bind_result($CPeriod,$CYear,$CMonth);
 						echo '<ul style="margin-left:50px;">';
 						while($stmt2->fetch()){
 							echo '<li>'.$CPeriod;
-						}
+						}						
 						$stmt3=$mysqli->stmt_init();
-						if($stmt3->prepare("Select unTransferControl,concat(MonthName(TCDate) , ' ' , Day(TCDate) , ', ' ,Year(TCDate)) as `TCPeriod`,TCNumber,branchfrom.BName,branchto.BName
-							From transfercontrol
-							Left Join branch as branchfrom on transfercontrol.unBranchFrom=branchfrom.unBranch
-							Left Join branch as branchto on transfercontrol.unBranchTo=branchto.unBranch
-							Where transfercontrol.`Status`=1 and (unBranchFrom=? or unBranchTo=?) And Year(TCDate)=? And MonthName(TCDate)=?
+						if($stmt3->prepare("Select unTransferControl,concat(MonthName(TCDate) , ' ' , Day(TCDate) , ', ' ,Year(TCDate)) as `TCPeriod`,TCNumber,branchfrom.BName,branchto.BName 
+							From transfercontrol 
+							Left Join branch as branchfrom on transfercontrol.unBranchFrom=branchfrom.unBranch 
+							Left Join branch as branchto on transfercontrol.unBranchTo=branchto.unBranch 
+							Where transfercontrol.`Status`=1 and (unBranchFrom=? or unBranchTo=?) And Year(TCDate)=? And MonthName(TCDate)=? 
 							Order By Year(TCDate) Desc, Month(TCDate) Asc, TCDate Desc")){
 						$stmt3->bind_param('iiss',$unBranch,$unBranch,$CYear,$CMonth);
 						$stmt3->execute();
@@ -1044,10 +1060,10 @@ $.post('ajax/index.ajax.php',
                 <?php
                         $mysqli = new mysqli($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
                         $stmt=$mysqli->stmt_init();
-                        if($stmt->prepare("Select unDamageControl,concat(MonthName(DCDate) , ' ' , Day(DCDate) , ', ' ,Year(DCDate)) as `DCPeriod`,DCDocNum,BName,ICNumber,DCComments
-											From damagecontrol
-                                            Inner Join branch on damagecontrol.unBranchFrom=branch.unBranch
-											Left Join inventorycontrol on damagecontrol.unInventoryControl=inventorycontrol.unInventoryControl
+                        if($stmt->prepare("Select unDamageControl,concat(MonthName(DCDate) , ' ' , Day(DCDate) , ', ' ,Year(DCDate)) as `DCPeriod`,DCDocNum,BName,ICNumber,DCComments 
+											From damagecontrol 
+                                            Inner Join branch on damagecontrol.unBranchFrom=branch.unBranch 
+											Left Join inventorycontrol on damagecontrol.unInventoryControl=inventorycontrol.unInventoryControl 
 											Where damagecontrol.`Status`=1 and damagecontrol.unArea=? Order By DCDate")){
                             $stmt->bind_param('i',$_SESSION['area']);
                             $stmt->execute();
@@ -1085,8 +1101,8 @@ $.post('ajax/index.ajax.php',
 				<?php
                         $mysqli = new mysqli($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
                         $stmt=$mysqli->stmt_init();
-                        if($stmt->prepare("SELECT unInvoiceControl,ICNumber,unInventoryControl,ICTotalSales,BName,ICDate
-											FROM invoicecontrol Inner Join branch on invoicecontrol.unBranch = branch.unBranch
+                        if($stmt->prepare("SELECT unInvoiceControl,ICNumber,unInventoryControl,ICTotalSales,BName,ICDate 
+											FROM invoicecontrol Inner Join branch on invoicecontrol.unBranch = branch.unBranch 
 											WHERE invoicecontrol.unArea=? and invoicecontrol.`Status`=1 Order By ICDate")){
                             $stmt->bind_param('i',$_SESSION['area']);
                             $stmt->execute();
@@ -1116,7 +1132,7 @@ $.post('ajax/index.ajax.php',
         	<a href="#showopenitem"><li style="text-align:left;">Open</li></a>
         	<a href="#"><li style="text-align:left;">Recent
             	<ul>-->
-            	<?php
+            	<?php 
                         $mysqli = new MySQLi($_SESSION['server'],$_SESSION['username'],$_SESSION['password'],$_SESSION['database']);
                         $stmt=$mysqli->stmt_init();
                         if($stmt->prepare("SELECT unAccountDocument,ADSource,ADType FROM accountdocument WHERE `Status`=1 and unAccountUser=? Order By TimeStamp Desc Limit 9")){
@@ -1203,7 +1219,7 @@ $.post('ajax/index.ajax.php',
             	 <a href="#"><li ><div title="Manage User masterlist (These are the people who access this system)" onClick="redirect('accountuser.php')"><img src="img/icon/user.png" style="padding-right:10px;">User</div></li></a>
                  <a href="#"><li ><div title="Manage Area - A cluster of Branches that belong to a certain geographic entity" onClick="redirect('area.php')"><img src="img/icon/employeearea.png" style="padding-right:10px;">Area</div></li></a>
                  <a href="#"><li ><div title="Create a new Branch/Outlet" onClick="redirect('branch.php')"><img src="img/icon/branch.png" width="16" height="16" style="padding-right:10px;">Branch</div></li></a>
-            	 <a href="#"><li ><div title="Create a new Employee (such as Service Crews, Cashiers and Managers)" onClick="redirect('employee.php')"><img src="img/icon/employee.png" width="16" height="16" style="padding-right:10px;">Employee</div></li></a>
+            	 <a href="#"><li ><div title="Create a new Employee (such as Service Crews, Cashiers and Managers)" onClick="redirect('employee.php')"><img src="img/icon/employee.png" width="16" height="16" style="padding-right:10px;">Employee</div></li></a>                
                  <a href="#"><li ><div title="Create a new Device" onClick="redirect('device.php')"><img src="img/icon/device.png" width="16" height="16" style="padding-right:10px;">Device</div></li></a>
                  <a href="#"><li ><div title="Create a new Payment Type" onClick="redirect('paymenttype.php')"><img src="img/icon/paymenttype.png" width="16" height="16" style="padding-right:10px;">Payment Type</div></li></a>
                  <a href="#"><li ><div title="Create a new Discount Type" onClick="redirect('discounttype.php')"><img src="img/icon/discounttype.png" width="16" height="16" style="padding-right:10px;">Discount Type</div></li></a>
@@ -1271,32 +1287,32 @@ $.post('ajax/index.ajax.php',
         <li >Help</li>
 		<li id = "menutools" >
 		  <a href="#popupsendfeedback" style="font-size: 12px;color: #333;">Send Feedback</a>
-      </li>
+      	</li>
 		<strong></strong>
-		<div id="userbutton" class="headbtn"><img src="img/user.png">
-            <a href="#"><?php echo $oAccountUser->getFullName(); ?></a>
+		<div id="userbutton" class="headbtn"><img src="img/user.png">  
+            <a href="#"><?php echo $oAccountUser->getFullName(); ?></a> 
             <ul style="visibility:hidden">
             <a href="index.php"><li style="text-align:left;" id="home">Home</li></a>
             <a href="#"><li style="text-align:left;" id="profile">Profile</li></a>
         	<a href="#"><li style="text-align:left;" id="settings">Settings</li></a>
-        	<a href="#"><li style="text-align:left;" id="feedback">Send Feed Back</li></a>
+        	<a href="#popupsendfeedback"><li style="text-align:left;" id="feedback">Send Feedback</li></a>
         	<a href="end.php"><li style="text-align:left;" id="signout">Sign Out</li></a>
             </ul>
         </div>
-
+    
 </div>
 <!--
-<div id="maintab1">
-</div>
+<div id="maintab1">	
+</div>    
 -->
 
 <?php
 	$bid=(isset($_GET['bid'])=='')?'':$_GET['bid'];
 	$did=(isset($_GET['did'])=='')?'':$_GET['did'];
 	$type=(isset($_GET['type'])=='')?'':$_GET['type'];
-
-	if($_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'manualinventory.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'cashbreakdown.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'inventory.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'delivery.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'transfer.php' ||
-		$_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'discount.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'damage.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'sold.php' ||
+	
+	if($_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'manualinventory.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'cashbreakdown.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'inventory.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'delivery.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'transfer.php' || 
+		$_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'discount.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'damage.php' || $_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'sold.php' || 
 		$_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'pettycash.php'){
 		?>
         <div id="maintab2">
@@ -1353,10 +1369,10 @@ $.post('ajax/index.ajax.php',
                 <li><a href="pettycash.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type; ?>" <?php echo ($_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'pettycash.php')?'style="background-color:#FFF;background-image:none; color:#000;"':''; ?> style=""><img src="img/icon/pettycash.png" width="16" height="16">Petty Cash</a></li>
                 <!--<li><a href="sale.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type; ?>" <?php echo ($_SERVER['PHP_SELF']==$_SESSION['ParentPath'].'sale.php')?'style="background-color:#FFF; color:#000;"':''; ?>><img src="img/icon/sales.png" width="16" height="16">Sales</a></li>-->
             </ul>
-
+            
             <ul id="nav" style="z-index:1">
                <?php if($_SESSION['BusinessUnit']=='Waffletime Inc.,'){ ?>
-                <li style="padding-left:10px;cursor:pointer; padding-top:2.5px;">Reports ▼
+                <li style="padding-left:10px;cursor:pointer; padding-top:2.5px;">Reports ▼ 
                 	<ul>
                     	<li><a href="productmix.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type; ?>" target="_blank">Product Mix</a></li>
                     	<li><a href="dailysalesreport.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type; ?>" target="_blank">Sales Report</a></li>
@@ -1374,7 +1390,7 @@ $.post('ajax/index.ajax.php',
                     </ul>
                 </li>
                 <?php }else{ ?>
-				<li style="padding-left:10px;cursor:pointer; padding-top:2.5px;">Reports ▼
+				<li style="padding-left:10px;cursor:pointer; padding-top:2.5px;">Reports ▼ 
                 	<ul>
                     	<li><a href="productmix.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type; ?>" target="_blank">Product Mix</a></li>
                     	<li><a href="wtishortage.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type; ?>" target="_blank">Shortages</a></li>
@@ -1386,10 +1402,10 @@ $.post('ajax/index.ajax.php',
                 		<li><a href="reportdamage.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type; ?>">Damages</a></li>
                         <li><a href="reportitf.php<?php echo '?&bid='.$bid.'&did='.$did.'&type='.$type.'&ttype=1'; ?>">Transfers</a></li>-->
                     </ul>
-                </li>
+                </li>	
 				<?php } ?>
             </ul>
-
+            
             <ul id="nav" style="position:absolute;right:10px;z-index:0;padding-top:2.5px;z-index:2">
                <li>
                		<?php
