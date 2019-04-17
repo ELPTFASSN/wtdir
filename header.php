@@ -400,6 +400,10 @@ $.post('ajax/index.ajax.php',
 						<div class="listviewsubitem"><b>Flavors of the month concern: </b> <br />This is impossible considering we're not saving per-crew FOM sold(We have no concrete data to work on).</div>
 					</div>
 					<div class="listviewitem" style = "margin-bottom: 10px; width: auto;">
+						<div class="listviewsubitem"><b><u>Rice n' More</u> Transfer lag issues: </b> <br />
+						There was a slight optimization in the database to improve performance. Any feedback would be much appreciated.</div>
+					</div>
+					<div class="listviewitem" style = "margin-bottom: 10px; width: auto;">
 						<div class="listviewsubitem">For the meantime, if you have any concerns and suggestions, you can send us an e-mail via [ Send Feedback ] found on upper left corner of the screen.</div>
 					</div>
 					<div class="listviewitem" style = "margin-bottom: 5px; width: auto;" title = "Cheers!">
@@ -946,6 +950,7 @@ $.post('ajax/index.ajax.php',
 						}
 						$stmt3=$mysqli->stmt_init();
 						if($stmt3->prepare("Select unInventoryControl,ICNumber,ICInventoryNumber,ICRemarks 
+
 											From inventorycontrol 
 											Where Status=1 and unBranch=? and Year(ICDate)=? and MonthName(ICDate)=? 
 											Order By ICInventoryNumber Desc")){
